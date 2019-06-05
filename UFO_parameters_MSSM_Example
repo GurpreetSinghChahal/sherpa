@@ -1,0 +1,249 @@
+(run){
+ # general settings
+ EVENTS 100;
+
+ # me generator setup
+ ME_SIGNAL_GENERATOR Comix;
+ SCALES VAR{Abs2(p[0]+p[1])};
+
+ # model setup
+ MODEL MSSM;
+
+ # uncomment to disable underlying event simulation:
+ # MI_HANDLER None;
+
+ # uncomment to disable hadronization:
+ # FRAGMENTATION Off;
+
+ # uncomment to disable shower:
+ # SHOWER_GENERATOR None;
+
+ # LHC beam setup:
+ BEAM_1 2212; BEAM_ENERGY_1 6500;
+ BEAM_2 2212; BEAM_ENERGY_2 6500;
+}(run)
+
+(processes){
+ Process 93 93 -> <REPLACE_ME>;
+ Order (*,*); 
+ # Syntax: "Order (QCD,QED);"
+ End process;
+}(processes)
+
+(selector){
+ # phase space cuts for matrix elements
+}(selector)
+
+(ufo){
+block umix
+       1       1       0.916834859   # RUU1x1
+       1       2       -0.399266629  # RUU1x2
+       2       1       0.399266629   # RUU2x1
+       2       2       0.916834859   # RUU2x2
+
+block snumix
+       1       1       1.0           # RRn1x1
+       2       2       1.0           # RRn2x2
+       3       3       1.0           # RRn3x3
+
+block msoft
+       1       101.396534    # RMx1
+       2       191.504241    # RMx2
+       3       588.263031    # RMx3
+       21      32337.4943    # mHd2
+       22      -128800.134   # mHu2
+
+block msu2
+       1       1       280382.106    # RmU21x1
+       2       2       280382.106    # RmU22x2
+       3       3       179137.072    # RmU23x3
+
+block vckm
+       1       1       1.0           # RCKM1x1
+       2       2       1.0           # RCKM2x2
+       3       3       1.0           # RCKM3x3
+
+block fralpha
+       1       -0.11382521   # alp
+
+block upmns
+       1       1       1.0           # RMNS1x1
+       2       2       1.0           # RMNS2x2
+       3       3       1.0           # RMNS3x3
+
+block msd2
+       1       1       273684.674    # RmD21x1
+       2       2       273684.674    # RmD22x2
+       3       3       270261.969    # RmD23x3
+
+block msl2
+       1       1       38155.67      # RmL21x1
+       2       2       38155.67      # RmL22x2
+       3       3       37828.6769    # RmL23x3
+
+block tu
+       3       3       -444.752457   # Rtu3x3
+
+block selmix
+       1       1       1.0           # RRl1x1
+       2       2       1.0           # RRl2x2
+       3       3       0.28248719    # RRl3x3
+       3       6       0.959271071   # RRl3x6
+       4       4       1.0           # RRl4x4
+       5       5       1.0           # RRl5x5
+       6       3       0.959271071   # RRl6x3
+       6       6       -0.28248719   # RRl6x6
+
+block td
+       3       3       -110.693742   # Rtd3x3
+
+block te
+       3       3       -25.4019727   # Rte3x3
+
+block usqmix
+       1       1       1.0           # RRu1x1
+       2       2       1.0           # RRu2x2
+       3       3       0.55364496    # RRu3x3
+       3       6       0.83275282    # RRu3x6
+       4       4       1.0           # RRu4x4
+       5       5       1.0           # RRu5x5
+       6       3       0.83275282    # RRu6x3
+       6       6       -0.55364496   # RRu6x6
+
+block dsqmix
+       1       1       1.0           # RRd1x1
+       2       2       1.0           # RRd2x2
+       3       3       0.938737896   # RRd3x3
+       3       6       0.344631925   # RRd3x6
+       4       4       1.0           # RRd4x4
+       5       5       1.0           # RRd5x5
+       6       3       -0.344631925  # RRd6x3
+       6       6       0.938737896   # RRd6x6
+
+block ye
+       3       3       0.10089081    # Rye3x3
+
+block yd
+       3       3       0.138840206   # Ryd3x3
+
+block sminputs
+       1       127.934       # aEWM1
+       3       0.118         # aS
+
+block yu
+       3       3       0.89284455    # Ryu3x3
+
+block mse2
+       1       1       18630.6287    # RmE21x1
+       2       2       18630.6287    # RmE22x2
+       3       3       17967.6406    # RmE23x3
+
+block nmix
+       1       1       0.98636443    # RNN1x1
+       1       2       -0.0531103553 # RNN1x2
+       1       3       0.146433995   # RNN1x3
+       1       4       -0.0531186117 # RNN1x4
+       2       1       0.0993505358  # RNN2x1
+       2       2       0.944949299   # RNN2x2
+       2       3       -0.26984672   # RNN2x3
+       2       4       0.156150698   # RNN2x4
+       3       1       -0.0603388002 # RNN3x1
+       3       2       0.0877004854  # RNN3x2
+       3       3       0.695877493   # RNN3x3
+       3       4       0.710226984   # RNN3x4
+       4       1       -0.116507132  # RNN4x1
+       4       2       0.310739017   # RNN4x2
+       4       3       0.64922596    # RNN4x3
+       4       4       -0.684377823  # RNN4x4
+
+block vmix
+       1       1       0.972557835   # RVV1x1
+       1       2       -0.232661249  # RVV1x2
+       2       1       0.232661249   # RVV2x1
+       2       2       0.972557835   # RVV2x2
+
+block msq2
+       1       1       299836.701    # RmQ21x1
+       2       2       299836.701    # RmQ22x2
+       3       3       248765.367    # RmQ23x3
+
+block mass
+       23      91.1876       # MZ
+       24      79.8290131    # MW
+       1000022 96.6880686    # Mneu1
+       1000023 181.088157    # Mneu2
+       1000025 -363.756027   # Mneu3
+       1000035 381.729382    # Mneu4
+       1000024 181.696474    # Mch1
+       1000037 379.93932     # Mch2
+       1000021 607.713704    # Mgo
+       25      110.899057    # MH01
+       35      399.960116    # MH02
+       36      399.583917    # MA0
+       37      407.879012    # MH
+       15      1.777         # Mta
+       6       175.0         # MT
+       5       4.88991651    # MB
+       1000012 185.258326    # Msn1
+       1000014 185.258326    # Msn2
+       1000016 184.708464    # Msn3
+       1000011 202.91569     # Msl1
+       1000013 202.91569     # Msl2
+       1000015 134.490864    # Msl3
+       2000011 144.102799    # Msl4
+       2000013 144.102799    # Msl5
+       2000015 206.867805    # Msl6
+       1000002 561.119014    # Msu1
+       1000004 561.119014    # Msu2
+       1000006 399.668493    # Msu3
+       2000002 549.259265    # Msu4
+       2000004 549.259265    # Msu5
+       2000006 585.785818    # Msu6
+       1000001 568.441109    # Msd1
+       1000003 568.441109    # Msd2
+       1000005 513.065179    # Msd3
+       2000001 545.228462    # Msd4
+       2000003 545.228462    # Msd5
+       2000005 543.726676    # Msd6
+
+block hmix
+       1       357.680977    # RMUH
+       2       9.74862403    # tb
+       4       166439.065    # MA2
+
+decay   23      2.41143316    # WZ
+decay   24      2.00282196    # WW
+decay   1000023 0.0207770048  # Wneu2
+decay   1000025 1.91598495    # Wneu3
+decay   1000035 2.58585079    # Wneu4
+decay   1000024 0.0170414503  # Wch1
+decay   1000037 2.4868951     # Wch2
+decay   1000021 5.50675438    # Wgo
+decay   25      0.00198610799 # WH01
+decay   35      0.574801389   # WH02
+decay   36      0.632178488   # WA0
+decay   37      0.546962813   # WH
+decay   6       1.56194983    # WT
+decay   1000012 0.149881634   # Wsn1
+decay   1000014 0.149881634   # Wsn2
+decay   1000016 0.147518977   # Wsn3
+decay   1000011 0.213682161   # Wsl1
+decay   1000013 0.213682161   # Wsl2
+decay   1000015 0.148327268   # Wsl3
+decay   2000011 0.216121626   # Wsl4
+decay   2000013 0.216121626   # Wsl5
+decay   2000015 0.269906096   # Wsl6
+decay   1000002 5.47719539    # Wsu1
+decay   1000004 5.47719539    # Wsu2
+decay   1000006 2.02159578    # Wsu3
+decay   2000002 1.15297292    # Wsu4
+decay   2000004 1.15297292    # Wsu5
+decay   2000006 7.37313275    # Wsu6
+decay   1000001 5.31278772    # Wsd1
+decay   1000003 5.31278772    # Wsd2
+decay   1000005 3.73627601    # Wsd3
+decay   2000001 0.285812308   # Wsd4
+decay   2000003 0.285812308   # Wsd5
+decay   2000005 0.801566294   # Wsd6
+
+}(ufo)
